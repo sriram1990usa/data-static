@@ -6,10 +6,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 class HomePageView(TemplateView):
-    template_name = "index.html"
+    template_name = "example/index.html"
 
 class AboutPageView(TemplateView):
-    template_name = "about.html"
+    template_name = "example/about.html"
 
 # Add this view
 class DataPageView(TemplateView):
@@ -51,4 +51,4 @@ class DataPageView(TemplateView):
             ]
         }
 
-        return render(request, 'data.html', context)
+        return render(request, 'example/data.html', context)

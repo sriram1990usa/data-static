@@ -9,7 +9,7 @@ SECRET_KEY = "CHANGE_ME"
 if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +40,7 @@ ROOT_URLCONF = 'proj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,19 +88,20 @@ USE_L10N = True # new
 USE_TZ = True
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'example/static'),
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+MEDIA_URL =  '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+mimetypes.add_type("text/css", ".css", True)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 '''
 ===========================================
-MEDIA_URL =  '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 LOGIN_REDIRECT_URL = 'base:index'
 LOGOUT_REDIRECT_URL = 'userauths:sign-in'
 LOGIN_URL = 'userauths:sign-in'
@@ -109,8 +110,6 @@ AUTH_USER_MODEL = 'userauths.User'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_KEY")
 # PAYSTACK_PUBLIC_KEY = config("PAYSTACK_PUBLIC_KEY")
-mimetypes.add_type("text/css", ".css", True)
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

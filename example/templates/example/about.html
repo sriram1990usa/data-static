@@ -1,15 +1,9 @@
-{% extends 'base.html' %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}About Us {% endblock %}</title>
-</head>
-<body>
+{% extends './base.html' %}
+{% load static %}
+{% block title %} About Us {% endblock %}
  
   {% block pagecontent %}
-  {% include 'partials/nav-bar.html' %} 
+  {% include './partials/nav-bar.html' %} 
     <p>
     We are a group of Django enthusiasts with the following idiosyncrasies:
     
@@ -20,5 +14,3 @@
     </p>
     
   {% endblock %}
-</body>
-</html>
